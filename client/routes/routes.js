@@ -31,3 +31,22 @@ FlowRouter.route('/task/:id', {
         });
     }
 });
+
+//FlowRouter.route('/upload', {
+//    name: 'upload',
+//    action() {
+//        BlazeLayout.render('MainLayout', {
+//            main: 'Upload'
+//        });
+//    }
+//});
+
+
+FlowRouter.route('/uploadFile', {
+    name: 'upload',
+    action() {
+        BlazeLayout.render('MainLayout', {
+            main: 'Upload'
+        });
+    }
+});
