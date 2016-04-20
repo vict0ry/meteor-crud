@@ -1,0 +1,14 @@
+<template name="MainLayout">
+    {{>Header }} 
+    {{#if currentUser}}
+    <main class="main-layout">
+        {{> Template.dynamic template=main}}
+    </main>
+    {{else}}
+    <div class="container">
+        <h1 class="bg-danger">Login please !</h1>
+    </div>
+    {{/if}}
+    
+
+</template>

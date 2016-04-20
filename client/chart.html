@@ -1,0 +1,63 @@
+<template name="chart">
+    <div class="container">
+        <h1>        Green = Estimation<br>
+        Blue  = Intern Estimation</h1>
+        <br>
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <i class="fa fa-bar-chart-o fa-fw"></i> Progress done in time
+                <div class="pull-right">
+                    <div class="btn-group">
+                        <ul class="dropdown-menu pull-right" role="menu">
+                            <li>test</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!-- /.panel-heading -->
+            <div class="panel-body" sytle="margin: 0 auto;">
+                <canvas id="buyers" width="1000" height="400" style="width: 1138px; height: 400px;"></canvas>
+
+            </div>
+            <!-- /.panel-body -->
+        </div>
+
+    </div>
+    <input type="hidden" class="datas" value="{{#each tasks}}{{difference}},{{/each}}">
+    <script>
+        // line chart data
+        var datas = $('.datas').val().split(",");
+        datas.pop();
+
+        var buyerData = {
+            labels: ["January", "February", "March", "April", "May", "June"],
+            datasets: [{
+                fillColor: "rgba(172,194,132,0.4)",
+                strokeColor: "#ACC26D",
+                pointColor: "#fff",
+                pointStrokeColor: "#9DB86D",
+                data: [203, -156, 99, 251, -305, 247]
+            }]
+        }
+
+        buyerData.datasets = [{
+            fillColor: "rgba(172,194,132,0.4)",
+            strokeColor: "#ACC26D",
+            pointColor: "#fff",
+            pointStrokeColor: "#9DB86D",
+            data: datas
+        }];
+        // get line chart canvas
+        var buyers = document.getElementById('buyers').getContext('2d');
+
+        // draw line chart
+        new Chart(buyers).Line(buyerData);
+
+        var barData = {
+            labels: ["1task", "February", "March", "April", "May", "June", "July"]
+        }
+
+        // draw bar chart
+        new Chart(income).Bar(barData);
+    </script>
+</template>

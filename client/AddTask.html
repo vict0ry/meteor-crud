@@ -1,0 +1,11 @@
+<template name="AddTask">
+
+    <div class="container">
+        <h1>Here you can add project !</h1> {{ >quickForm collection="Tasks" id="insertTasks" type="insert" class="new-insert-form animated bounceInLeft" }}
+        <script>
+            slider.noUiSlider.on('slide', function() {
+                alert('test');
+            });
+        </script>
+    </div>
+</template>
