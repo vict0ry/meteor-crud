@@ -32,14 +32,14 @@ FlowRouter.route('/task/:id', {
     }
 });
 
-//FlowRouter.route('/upload', {
-//    name: 'upload',
-//    action() {
-//        BlazeLayout.render('MainLayout', {
-//            main: 'Upload'
-//        });
-//    }
-//});
+FlowRouter.route('/profile', {
+    name: 'profile',
+    action() {
+        BlazeLayout.render('MainLayout', {
+            main: 'Profile'
+        });
+    }
+});
 
 
 FlowRouter.route('/uploadFile', {

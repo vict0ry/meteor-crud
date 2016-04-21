@@ -1,4 +1,7 @@
 Tasks = new Mongo.Collection('tasks');
+Items = new Mongo.Collection('items');
+Uploads = new Mongo.Collection('uploads');
+
 
 if (Meteor.isServer) {
     Meteor.publish("tasks", function() {
@@ -7,7 +10,13 @@ if (Meteor.isServer) {
         }
     });
 
-    //    return Tasks.find();
+    Meteor.publish('items', function() {
+        return Items.find();
+    });
+    
+    Meteor.publish('uploads', function() {
+        return Uploads.find();
+    });
 }
 
 

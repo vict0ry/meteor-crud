@@ -1,15 +1,23 @@
 
 if (Meteor.isClient){
     Meteor.subscribe('tasks');
+    Meteor.subscribe('items');
+    Meteor.subscribe('uploads')
 }
 
+Meteor.startup(function() {
+  Uploader.finished = function(index, file) {
+    file.identifyMe = Meteor.userId(); // for indetificate whom belong this picture
+    Uploads.insert(file);
+  }
+});
 
 Template.task.helpers({
     
-    tasks() {
+    tasks: function() {
             return Tasks.find({});
         },
-        ajdi() {
+        ajdi: function() {
             return this._id;
         }
 });
