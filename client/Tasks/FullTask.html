@@ -1,7 +1,7 @@
 <template name="FullTask">
     <div class="container">
         <h1>Full project information</h1>
-        Owner : {{fullTask.owner}}<br>
+        Owner : <a href="/profile/{{fullTask.author}}">{{fullTask.owner}}</a><br>
         Project name:{{fullTask.projectName}}<br>
         Project desc: {{fullTask.projectDescription}}
         

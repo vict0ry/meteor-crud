@@ -20,7 +20,7 @@
                     <!-- END SIDEBAR USER TITLE -->
                     <!-- SIDEBAR BUTTONS -->
                     <div class="profile-userbuttons">
-                        <button type="button" class="btn btn-success btn-sm">Follow</button>
+                        
                         <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#myModal">Message</button>
                     </div>
                     <!-- END SIDEBAR BUTTONS -->
@@ -32,8 +32,8 @@
                                     <i class="glyphicon glyphicon-home"></i> Overview </a>
                             </li>
                             <li>
-                                <a href="#">
-                                    <i class="glyphicon glyphicon-user"></i> Account Settings </a>
+                                <a href="/uploadFile">
+                                    <i class="glyphicon glyphicon-user"></i>Upload avatar</a>
                             </li>
                         </ul>
                     </div>
@@ -64,7 +64,7 @@
                     <h4 class="modal-title">Modal Header</h4>
                 </div>
                 <div class="modal-body">
-                    <p>This is a large modal.</p>
+                    {{ >quickForm collection="Messages" id="insertTasks" type="insert" }}
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
