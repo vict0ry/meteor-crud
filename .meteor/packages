@@ -32,11 +32,10 @@ aldeed:autoform
 accounts-ui
 accounts-password
 matb33:bootstrap-glyphicons
-#msavin:jetsetter
 zimme:active-route
 gwendall:auth-client-callbacks
 meteortoys:allthings
-twbs:bootstrap
+#twbs:bootstrap
 elevatedevdesign:autoform-nouislider
 chart:chart
 natestrauser:animate-css
@@ -46,3 +45,4 @@ tomi:upload-server
 tomi:upload-jquery
 particle4dev:upload-avatar
 accounts-base
+dburles:collection-helpers

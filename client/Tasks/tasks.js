@@ -1,25 +1,42 @@
-
-if (Meteor.isClient){
+if (Meteor.isClient) {
     Meteor.subscribe('tasks');
     Meteor.subscribe('items');
     Meteor.subscribe('uploads')
 }
 
+
+//Uploads.helpers({
+//    author(){
+//        return Meteor.Users.findOne(Meteor.findUser());
+//    }
+//});
+
+
 Meteor.startup(function() {
-  Uploader.finished = function(index, file) {
-    file.identifyMe = Meteor.userId(); // for indetificate whom belong this picture
-    Uploads.insert(file);
-  }
+    Uploader.finished = function(index, file) {
+
+        file.identifyMe = Meteor.userId(); // for indetificate whom belong this picture
+
+        Uploads.insert(file);
+
+    }
 });
 
+Template.Profile.helpers({
+    myAvatar: function(){
+        return Uploads.findOne({identifyMe:Meteor.userId()});
+    }
+});
+
+
 Template.task.helpers({
-    
+
     tasks: function() {
-            return Tasks.find({});
-        },
-        ajdi: function() {
-            return this._id;
-        }
+        return Tasks.find({});
+    },
+    ajdi: function() {
+        return this._id;
+    }
 });
 
 Template.task.events({

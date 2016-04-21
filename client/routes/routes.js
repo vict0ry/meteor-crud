@@ -41,6 +41,15 @@ FlowRouter.route('/profile', {
     }
 });
 
+FlowRouter.route('/profile/:id', {
+    name: 'userProfile',
+    action() {
+        BlazeLayout.render('MainLayout', {
+            main: 'UserProfile'
+        });
+    }
+});
+
 
 FlowRouter.route('/uploadFile', {
     name: 'upload',
