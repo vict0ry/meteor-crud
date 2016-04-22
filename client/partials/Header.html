@@ -17,7 +17,7 @@
                 <li><a href="/chart">Chart</a></li>
                 <li><a href="/chart">{{#if isInRole 'admin'}}Manage Users{{/if}}</a></li>
                 <li><a href="/profile{{this.userId}}">My profile</a></li>
-                <li><a href="/myMessages/"><span class="fa fa-envelope newMessage" aria-hidden="true"></span> Messages</a></li>
+                <li><a href="/myMessages/"><span class="fa fa-envelope {{#each unreadMessages}}{{#if message}}newMessage{{/if}}{{/each}}" aria-hidden="true"></span> Messages</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li><span class="glyphicon glyphicon-user"></span>{{> loginButtons}}</li>
@@ -28,7 +28,7 @@
     </nav>
     {{#each unreadMessages}}
         {{#if message}}
-           <script>$.notify("{{message}}");</script>
+           <script>$.notify("{{message}}",{delay: 200});</script>
         {{/if}}
     {{/each}}
 </template>

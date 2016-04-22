@@ -359,3 +359,16 @@ background: #CAE2E3;
     color:white;
 }
 /****************** end user profile **************/
+
+div.active {
+    background: rgb(184, 225, 252);    
+}
+.list-group-item{
+    border:1px solid #FFF;
+}
+.list-group-item.readed{
+    background-color:rgb(151, 233, 184);
+}
+.list-group-item{
+    background-color:rgb(210,215,212);
+}

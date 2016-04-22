@@ -5,7 +5,7 @@ MessagesSchema = new SimpleSchema({
         type: String,
         label: "Author",
         autoValue() {
-            return this.userId
+            return Meteor.userId()
         },
         autoform: {
             type: "hidden"
@@ -38,6 +38,21 @@ MessagesSchema = new SimpleSchema({
         autoValue() {
             return Meteor.user().username
         },
+        autoform: {
+            type: "hidden"
+        }
+    }, 
+    recipientId:{
+        type: String,
+        label: "Recipient",
+        autoform:{
+            type: "hidden"
+        }
+    },
+    readed: {
+        type: Boolean,
+        label: "Readed",
+        defaultValue: false,
         autoform: {
             type: "hidden"
         }

@@ -59,3 +59,21 @@ FlowRouter.route('/uploadFile', {
         });
     }
 });
+
+FlowRouter.route('/myMessages', {
+    name: 'myMessage',
+    action() {
+        BlazeLayout.render('MainLayout', {
+            main: 'MyMessages'
+        });
+    }
+});
+
+FlowRouter.route('/myMessages/:id', {
+    name: 'fullMessage',
+    action() {
+        BlazeLayout.render('MainLayout', {
+            main: 'FullMessage'
+        });
+    }
+});

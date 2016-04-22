@@ -1,0 +1,17 @@
+<template name="MyMessages">
+   
+   
+   
+   
+    <div class="container">
+       <h1>All messages: </h1>
+        <ul class="list-group">
+           {{#each allMessages}}
+            <li class="list-group-item {{#unless readed}}readed{{/unless}}">
+                <span class="label label-default label-pill pull-xs-right">14</span> <a href="/myMessages/{{_id}}">{{whatAbout}}</a>
+            </li>
+          {{/each}}
+        </ul>
+    </div>
+    
+</template>
