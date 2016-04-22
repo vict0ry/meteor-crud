@@ -4,7 +4,7 @@ Roles.addUsersToRoles("9ewiF8JTNp77Pmijw", 'intern', Roles.GLOBAL_GROUP);
 Meteor.methods({
 
     removeTask: function(id) {
-            const canDelete = Roles.userIsInRole(userId,['admin']);
+            const canDelete = Roles.userIsInRole(this.userId,['admin']);
     if (!canDelete) {
         throw new Meteor.Error('unauthorized','Only admins and moderators can delete posts.');
     }

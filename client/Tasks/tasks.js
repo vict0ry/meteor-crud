@@ -4,14 +4,6 @@ if (Meteor.isClient) {
     Meteor.subscribe('uploads')
 }
 
-
-//Uploads.helpers({
-//    author(){
-//        return Meteor.Users.findOne(Meteor.findUser());
-//    }
-//});
-
-
 Meteor.startup(function() {
     Uploader.finished = function(index, file) {
 

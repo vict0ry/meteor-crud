@@ -70,7 +70,7 @@ TaskSchema = new SimpleSchema({
             type: "noUiSlider",
             step: 1,
             noUiSlider_pipsOptions: {
-
+                mode: 'range',
                 density: 1
             }
         }

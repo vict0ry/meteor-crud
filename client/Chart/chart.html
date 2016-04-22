@@ -25,39 +25,41 @@
     </div>
     <input type="hidden" class="datas" value="{{#each tasks}}{{difference}},{{/each}}">
     <script>
-        // line chart data
-        var datas = $('.datas').val().split(",");
-        datas.pop();
+        $(document).ready() {
+            // line chart data
+            var datas = $('.datas').val().split(",");
+            datas.pop();
 
-        var buyerData = {
-            labels: ["January", "February", "March", "April", "May", "June"],
-            datasets: [{
+            var buyerData = {
+                labels: ["January", "February", "March", "April", "May", "June"],
+                datasets: [{
+                    fillColor: "rgba(172,194,132,0.4)",
+                    strokeColor: "#ACC26D",
+                    pointColor: "#fff",
+                    pointStrokeColor: "#9DB86D",
+                    data: [203, -156, 99, 251, -305, 247]
+                }]
+            }
+
+            buyerData.datasets = [{
                 fillColor: "rgba(172,194,132,0.4)",
                 strokeColor: "#ACC26D",
                 pointColor: "#fff",
                 pointStrokeColor: "#9DB86D",
-                data: [203, -156, 99, 251, -305, 247]
-            }]
+                data: datas
+            }];
+            // get line chart canvas
+            var buyers = document.getElementById('buyers').getContext('2d');
+
+            // draw line chart
+            new Chart(buyers).Line(buyerData);
+
+            var barData = {
+                labels: ["1task", "February", "March", "April", "May", "June", "July"]
+            }
+
+            // draw bar chart
+            new Chart(income).Bar(barData);
         }
-
-        buyerData.datasets = [{
-            fillColor: "rgba(172,194,132,0.4)",
-            strokeColor: "#ACC26D",
-            pointColor: "#fff",
-            pointStrokeColor: "#9DB86D",
-            data: datas
-        }];
-        // get line chart canvas
-        var buyers = document.getElementById('buyers').getContext('2d');
-
-        // draw line chart
-        new Chart(buyers).Line(buyerData);
-
-        var barData = {
-            labels: ["1task", "February", "March", "April", "May", "June", "July"]
-        }
-
-        // draw bar chart
-        new Chart(income).Bar(barData);
     </script>
 </template>

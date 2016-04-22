@@ -20,7 +20,7 @@
                     <!-- END SIDEBAR USER TITLE -->
                     <!-- SIDEBAR BUTTONS -->
                     <div class="profile-userbuttons">
-                        
+
                         <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#myModal">Message</button>
                     </div>
                     <!-- END SIDEBAR BUTTONS -->
@@ -61,10 +61,16 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h4 class="modal-title">Modal Header</h4>
+                    <h4 class="modal-title">Your message :</h4>
                 </div>
                 <div class="modal-body">
-                    {{ >quickForm collection="Messages" id="insertTasks" type="insert" }}
+                    {{ >quickForm collection="Messages" id="messagesForm" type="insert" }} 
+                    {{#autoForm collection="Messages" id="messagesForm" type="insert"}}
+                    <fieldset>
+                        {{> afQuickField name='recipientId'}}
+                    </fieldset>
+<!--                    {{/quickForm}}-->
+                    {{/autoForm}}
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -72,5 +78,5 @@
             </div>
         </div>
     </div>
-    
+
 </template>

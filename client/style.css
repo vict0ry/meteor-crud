@@ -5,13 +5,13 @@
 }
 .navbar-inverse .navbar-nav>li>a{
     
-    color:#fff!important;
+    color:#fff;
 }
 .navbar-inverse{
     border-color: #9A0B0A!important;
 }
 body{
-    background:#fff;
+    background:#fff !important;
     font-family: 'Lato', sans-serif;
     font:16px/1.5 sans-serif !important;
 }
@@ -352,5 +352,10 @@ background: #CAE2E3;
     transition: all 0.3s ease-out;
     opacity: 1;
 }
-
+.newMessage{
+    color:#FF1A00 !important;
+}
+.newMessage a{
+    color:white;
+}
 /****************** end user profile **************/
