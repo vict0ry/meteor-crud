@@ -12,7 +12,8 @@ Template.Header.helpers({
 Template.MyMessages.helpers({
     allMessages: function() {
         return Messages.find({ recipientId: Meteor.userId() });
-    }
+    },
+    testik: "ahoj"
 });
 
 Template.FullMessage.helpers({
@@ -24,11 +25,12 @@ Template.FullMessage.helpers({
 
 Template.FullMessage.onRendered(function () {
             var id = FlowRouter.getParam('id');
-            Messages.update(id, 
-        {
-            $set: {readed: true}
-        });
+            Messages.update(id, {$set: {readed: true} });
 });
+
+//Template.Header.onRendered(function () {
+//Messages.update({readed:false},{ $set:{readed:true} });
+//});
 
 
 Template.Header.events({

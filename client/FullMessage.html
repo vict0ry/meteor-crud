@@ -1,9 +1,10 @@
 <template name="FullMessage">
     <div class="container">
-       Tema: {{fullMessage.whatAbout}}<br>
-       Zprava : {{fullMessage.message}}<br>
-       Od koho: {{fullMessage.owner}}<br>
-       <a href="/myMessages">back</a>
+        
+       Sender: <a href="/profile/{{fullMessage.author}}">{{fullMessage.owner}}</a><br>
+       Subject: {{fullMessage.whatAbout}}<br>
+       Message: {{fullMessage.message}}<br>
+       
+       <a href="/myMessages">back</a>   
     </div>
-    {{testim}}
 </template>
