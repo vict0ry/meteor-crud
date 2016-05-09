@@ -388,3 +388,8 @@ div.active {
     background-color: #000000;
     border-color: #000000;
 }
+.subjectMessage{
+    background-color: #794B4B;
+    color:#fff;
+    padding:20px;
+}

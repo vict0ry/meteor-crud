@@ -1,17 +1,20 @@
 <template name="FullMessage">
     <div class="container">
-        
-       Sender: <a href="/profile/{{fullMessage.author}}">{{fullMessage.owner}}</a><br>
-       Subject: {{fullMessage.whatAbout}}<br>
+       
+       <div class="subjectMessage">Subject: {{fullMessage.whatAbout}}</div><br>
+        <div class="alert alert-info message">
+       Sender: <strong><a href="/profile/{{fullMessage.author}}">{{fullMessage.owner}}</a></strong><br>
        Message: {{fullMessage.message}}<br>
+       </div>
         
                           
 
 
                 {{#each fullMessages}}
-                    
-                <strong>Sender: <a href="/profile/{{fullMessage.author}}">{{owner}}</a></strong><br>
+                   <div class="alert alert-info message">
+                   <strong>Sender: <a href="/profile/{{fullMessage.author}}">{{owner}}</a></strong><br>
                    Message: {{message}}<br>
+                   </div>
                 {{/each}}
 
 

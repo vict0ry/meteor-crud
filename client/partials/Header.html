@@ -15,7 +15,7 @@
                 <li><a href="/">{{_ "homepage"}}</a></li>
                 <li><a href="/add">{{_ "addTask" }}</a></li>
                 <li><a href="/chart">{{_ "chart" }}</a></li>
-                <li><a href="/chart">{{#if isInRole 'admin'}}{{_ "userList" }}{{/if}}</a></li>
+                <li><a href="/users">{{#if isInRole 'admin'}}{{_ "userList" }}{{/if}}</a></li>
                 <li><a href="/profile/{{userProfile}}">{{_ "myProfile" }}</a></li>
                 <li><a href="/myMessages/"><span class="fa fa-envelope {{#each unreadMessages}}{{#if message}}newMessage{{/if}}{{/each}}" aria-hidden="true"></span> {{_ "messages" }}</a></li>
             </ul>
@@ -34,9 +34,9 @@
         {{/if}}
     {{/each}}
     {{#each unreadMessagesFull}}
-                        {{#if message}}
-                           <script>$.notify("{{message}}",{delay: 200});</script>
-                        {{/if}}
+       {{#if message}}
+             <script>$.notify("{{message}}",{delay: 200});</script>
+       {{/if}}
     {{/each}}
     
     

@@ -77,3 +77,12 @@ FlowRouter.route('/myMessages/:id', {
         });
     }
 });
+
+FlowRouter.route('/users', {
+    name: 'userList',
+    action() {
+        BlazeLayout.render('MainLayout', {
+            main: 'Users'
+        });
+    }
+});
