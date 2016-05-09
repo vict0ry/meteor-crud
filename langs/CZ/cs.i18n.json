@@ -1,0 +1,22 @@
+{ 
+    //******** START of MENU **********//
+    "homepage": "Hlavní stránka",
+    "addTask": "Přidat úlohu",
+    "chart": "Graf",
+    "userList": "Seznam uživatelů",
+    "myProfile": "Můj Profil",
+    "messages": "Zpravy",
+    //******** End of MENU **********//
+    "projectList": "Seznam projektu",
+    
+    //******** START of Project Table **********//
+    "projectName": "Název projektu",
+    "estimation": "Odhad",
+    "worked": "Odpracovano",
+    "ratio":"Koeficient",
+    "difference":"Rozdíl",
+    "internDif":"Interní rozdíl",
+    "action":"Akce"
+    //********End of Project Table**********//
+    
+}

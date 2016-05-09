@@ -1,8 +1,8 @@
-//AutoForm.addHooks(null, {
-//    onSuccess: function(operation, result, template) {
-//        FlowRouter.go('/');
-//    }
-//});
+AutoForm.addHooks(null, {
+    onSuccess: function(operation, result, template) {
+        //alert
+    }
+});
 
 var messagestHooks = {
   before: {

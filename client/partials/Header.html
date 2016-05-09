@@ -12,15 +12,17 @@
             </div>
             <div class="container">
             <ul class="nav navbar-nav">
-                <li><a href="/">Home page</a></li>
-                <li><a href="/add">Add task</a></li>
-                <li><a href="/chart">Chart</a></li>
-                <li><a href="/chart">{{#if isInRole 'admin'}}Manage Users{{/if}}</a></li>
-                <li><a href="/profile{{this.userId}}">My profile</a></li>
-                <li><a href="/myMessages/"><span class="fa fa-envelope {{#each unreadMessages}}{{#if message}}newMessage{{/if}}{{/each}}" aria-hidden="true"></span> Messages</a></li>
+                <li><a href="/">{{_ "homepage"}}</a></li>
+                <li><a href="/add">{{_ "addTask" }}</a></li>
+                <li><a href="/chart">{{_ "chart" }}</a></li>
+                <li><a href="/chart">{{#if isInRole 'admin'}}{{_ "userList" }}{{/if}}</a></li>
+                <li><a href="/profile/{{userProfile}}">{{_ "myProfile" }}</a></li>
+                <li><a href="/myMessages/"><span class="fa fa-envelope {{#each unreadMessages}}{{#if message}}newMessage{{/if}}{{/each}}" aria-hidden="true"></span> {{_ "messages" }}</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
+               <li class="glyphicon glyphicon-refresh"><span style="margin-right:20px;" class="czech">Čeština</span></li>
                 <li><span class="glyphicon glyphicon-user"></span>{{> loginButtons}}</li>
+                
             </ul>
             </div>
 
@@ -31,4 +33,12 @@
            <script>$.notify("{{message}}",{delay: 200});</script>
         {{/if}}
     {{/each}}
+    {{#each unreadMessagesFull}}
+                        {{#if message}}
+                           <script>$.notify("{{message}}",{delay: 200});</script>
+                        {{/if}}
+    {{/each}}
+    
+    
+    
 </template>

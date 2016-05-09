@@ -1,22 +1,18 @@
-Messages = new Mongo.Collection('messages');
+getAllMessages = new Mongo.Collection('getAllMessages');
 
-MessagesSchema = new SimpleSchema({
+AllMessagesSchema = new SimpleSchema({
     author: {
         type: String,
         label: "Author",
-        defaultValue() {
+        autoValue() {
             return Meteor.userId()
         },
         autoform: {
             type: "hidden"
         }
     },
-    whatAbout: {
-        label: "project name",
-        type: String
-    },
     message: {
-        label: "Description",
+        label: "Reply",
         type: String,
         autoform: {
             rows: 5
@@ -35,7 +31,7 @@ MessagesSchema = new SimpleSchema({
     owner: {
         type: String,
         label: "Username",
-        defaultValue() {
+        autoValue() {
             return Meteor.user().username
         },
         autoform: {
@@ -61,4 +57,4 @@ MessagesSchema = new SimpleSchema({
 
 
 
-Messages.attachSchema(MessagesSchema);
+getAllMessages.attachSchema(AllMessagesSchema);

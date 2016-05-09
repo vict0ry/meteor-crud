@@ -53,8 +53,8 @@ Template.task.events({
     'keypress .edit' (event) {
         if (event.which == 13) {
             event.preventDefault();
-
             whatClass = event.target.classList[0];
+            
             whatValue = $(event.target).text();
 
             nameIt = whatClass;
@@ -75,8 +75,8 @@ Template.task.events({
             Meteor.call("updateAnything", this._id, whatToChange);
             Meteor.call("updateAnything", this._id, difference);
             Meteor.call("updateAnything", this._id, differenceIntern);
+            document.execCommand('undo');
             /***************  update contenteditable) ****************/
-
             event.target.contentEditable = "false";
         }
     }

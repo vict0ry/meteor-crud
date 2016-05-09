@@ -4,7 +4,19 @@
        Sender: <a href="/profile/{{fullMessage.author}}">{{fullMessage.owner}}</a><br>
        Subject: {{fullMessage.whatAbout}}<br>
        Message: {{fullMessage.message}}<br>
-       
+        
+                          
+
+
+                {{#each fullMessages}}
+                    
+                <strong>Sender: <a href="/profile/{{fullMessage.author}}">{{owner}}</a></strong><br>
+                   Message: {{message}}<br>
+                {{/each}}
+
+
+                           {{ >quickForm collection="getAllMessages" id="messagesForm" type="insert" }} 
+                           
        <a href="/myMessages">back</a>   
     </div>
 </template>

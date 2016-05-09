@@ -1,0 +1,22 @@
+{ 
+    //******** START of MENU **********//
+    "homepage": "Home page",
+    "addTask": "Add Task",
+    "chart": "Chart",
+    "userList": "Users list",
+    "myProfile": "My profile",
+    "messages": "Messages",
+    //******** End of MENU **********//
+    "projectList": "Project list",
+    
+    //******** START of Project Table **********//
+    "projectName": "Project Name",
+    "estimation": "Estimation",
+    "worked": "Worked",
+    "ratio":"Ratio",
+    "difference":"Difference",
+    "internDif":"Intern difference",
+    "action":"Action"
+    //********End of Project Table**********//
+    
+}

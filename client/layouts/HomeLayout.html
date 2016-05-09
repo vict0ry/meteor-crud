@@ -2,17 +2,17 @@
     {{>Header }}
     {{#if currentUser}}
     <div class="container">
-       <h1>Project list :</h1><br>
+       <h1>{{_ "projectList"}} :</h1><br>
        <a style="float:right;padding-bottom:5px;">Show finished projects</a>
         <table class="table table-striped animated slideInRight">
             <thead>
                 <tr>
-                    <th><span class="sort-element">Project name</span><span class="sort-icon fa"></span></th>
-                    <th><span class="sort-element">Estimation</span><span class="sort-icon fa"></span></th>
-                    <th><span class="sort-element">Worked</span><span class="sort-icon fa"></span></th>
-                    <th><span class="sort-element">Ratio</span><span class="sort-icon fa"></span></th>
-                    <th><span class="sort-element">Difference / Intern dif</span><span class="sort-icon fa"></span></th>
-                    <th><span class="sort-element">Action</span><span class="sort-icon fa"></span></th>
+                    <th><span class="sort-element">{{_"projectName"}}</span><span class="sort-icon fa"></span></th>
+                    <th><span class="sort-element">{{_"estimation"}}</span><span class="sort-icon fa"></span></th>
+                    <th><span class="sort-element">{{_"worked"}}</span><span class="sort-icon fa"></span></th>
+                    <th><span class="sort-element">{{_"ratio"}}</span><span class="sort-icon fa"></span></th>
+                    <th><span class="sort-element">{{_"difference"}} / {{_"internDif"}}</span><span class="sort-icon fa"></span></th>
+                    <th><span class="sort-element">{{_"action"}}</span><span class="sort-icon fa"></span></th>
                 </tr>
             </thead>
             <tbody>

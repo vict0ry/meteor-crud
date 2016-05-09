@@ -1,6 +1,6 @@
 <template name="AddTask">
 
     <div class="container">
-        <h1>Here you can add project !</h1> {{ >quickForm collection="Tasks" id="insertTasks" type="insert" class="new-insert-form animated bounceInLeft" }}
+        <h1>Here you can add project !</h1> {{ >quickForm collection="Tasks" id="insertTasks" scope="users" type="insert" class="new-insert-form animated bounceInLeft" }}
     </div>
 </template>
