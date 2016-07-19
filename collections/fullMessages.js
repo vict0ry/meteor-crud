@@ -31,21 +31,36 @@ AllMessagesSchema = new SimpleSchema({
     owner: {
         type: String,
         label: "Username",
-        autoValue() {
-            return Meteor.user().username
+        defaultValue(){
+          return Meteor.user().username
         },
         autoform: {
             type: "hidden"
         }
-    }, 
+    },
+    recipientIdMessage:{
+        type: String,
+        label: "RecipientMessage",
+        autoform:{
+            type: "hidden"
+        }
+    },
     recipientId:{
         type: String,
-        label: "Recipient",
+        label: "RecipientIdMessage",
         autoform:{
             type: "hidden"
         }
     },
     readed: {
+        type: Boolean,
+        label: "Readed",
+        defaultValue: false,
+        autoform: {
+            type: "hidden"
+        }
+    },
+    notified: {
         type: Boolean,
         label: "Readed",
         defaultValue: false,

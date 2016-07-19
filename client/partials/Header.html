@@ -14,31 +14,36 @@
             <ul class="nav navbar-nav">
                 <li><a href="/">{{_ "homepage"}}</a></li>
                 <li><a href="/add">{{_ "addTask" }}</a></li>
-                <li><a href="/chart">{{_ "chart" }}</a></li>
+                <!-- <li><a href="/chart">{{_ "chart" }}</a></li> -->
                 <li><a href="/users">{{#if isInRole 'admin'}}{{_ "userList" }}{{/if}}</a></li>
                 <li><a href="/profile/{{userProfile}}">{{_ "myProfile" }}</a></li>
                 <li><a href="/myMessages/"><span class="fa fa-envelope {{#each unreadMessages}}{{#if message}}newMessage{{/if}}{{/each}}" aria-hidden="true"></span> {{_ "messages" }}</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-               <li class="glyphicon glyphicon-refresh"><span style="margin-right:20px;" class="czech">Čeština</span></li>
+               <li><span style="margin-right:20px;" class="czech"><img src="/lang/cz.png" alt="czech"></span></li>
+               <li><span style="margin-right:20px;" class="english"><img src="/lang/gb.png" alt="english"></span></li>
                 <li><span class="glyphicon glyphicon-user"></span>{{> loginButtons}}</li>
-                
+
             </ul>
             </div>
 
         </div>
     </nav>
+
+
     {{#each unreadMessages}}
         {{#if message}}
            <script>$.notify("{{message}}",{delay: 200});</script>
         {{/if}}
     {{/each}}
+
     {{#each unreadMessagesFull}}
        {{#if message}}
              <script>$.notify("{{message}}",{delay: 200});</script>
        {{/if}}
     {{/each}}
-    
-    
-    
+
+
+
+
 </template>

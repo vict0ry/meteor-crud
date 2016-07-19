@@ -1,5 +1,5 @@
 Meteor.startup(function() {
-
+  // Roles.addUsersToRoles('uupiRPdru5CDsdrqp', ['admin','intern']);
     if (Items.find().count() == 0) {
         Items.insert({
             name: 'My Item',

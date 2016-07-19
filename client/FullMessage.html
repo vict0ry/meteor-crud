@@ -1,25 +1,25 @@
 <template name="FullMessage">
     <div class="container">
-       
+
        <div class="subjectMessage">Subject: {{fullMessage.whatAbout}}</div><br>
         <div class="alert alert-info message">
        Sender: <strong><a href="/profile/{{fullMessage.author}}">{{fullMessage.owner}}</a></strong><br>
        Message: {{fullMessage.message}}<br>
        </div>
-        
-                          
 
 
+
+  <div id="messages">
                 {{#each fullMessages}}
                    <div class="alert alert-info message">
                    <strong>Sender: <a href="/profile/{{fullMessage.author}}">{{owner}}</a></strong><br>
                    Message: {{message}}<br>
                    </div>
                 {{/each}}
+</div>
+                          {{ >quickForm collection="getAllMessages" id="messagesForm" type="insert" }}
 
+       <a href="/myMessages">back</a>
 
-                           {{ >quickForm collection="getAllMessages" id="messagesForm" type="insert" }} 
-                           
-       <a href="/myMessages">back</a>   
     </div>
 </template>

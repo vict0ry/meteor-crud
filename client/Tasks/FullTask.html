@@ -1,9 +1,79 @@
 <template name="FullTask">
     <div class="container">
-        <h1>Full project information</h1>
-        Owner : <a href="/profile/{{fullTask.author}}">{{fullTask.owner}}</a><br>
-        Project name:{{fullTask.projectName}}<br>
-        Project desc: {{fullTask.projectDescription}}
-        
+        <div class="col-lg-6 fullTask">
+          <h1>Full project information</h1>
+          Author : <a href="/profile/{{fullTask.author}}" class="author">{{fullTask.owner}}</a><br>
+          Project name:{{fullTask.projectName}}<br>
+          Project description: <div class="">{{fullTask.projectDescription}}</div><br>
+        {{#if userTimes}}
+        <hr>
+        <h3>Time spended:</h3>
+          {{#each userTimes}}
+            {{username}}:{{worked}} <span class="removeItem"></span><br>
+          {{/each}}
+          <hr>
+        {{/if}}
+          {{#if userTotalTimes}}
+          <h3>total:</h3>
+            {{#each userTotalTimes}}
+              {{username}}:{{time}},intern: {{internTime}}<br>
+            {{/each}}
+          {{/if}}
+        </div>
+        <div class="col-lg-6 fullTask">
+          <h1>Summary:</h1>
+          <div class="assignedUsers">users assigned to project :
+            {{#each assignedUsers }}
+              <span class="author">{{users}}</span>
+            {{/each}}
+          </div>
+          <hr>
+
+          <br>
+<select name="users" class="users form-control" multiple>
+  {{#each userList}}
+    <option value="{{username}}">{{username}}</option>
+  {{/each}}
+</select>
+<br>
+<button class="saveUser btn btn-primary">Save</button>
+<hr>
+<div class="addHours">
+  <h2>Add Time:</h2>
+  {{#each assignedUsers }}
+   {{#each users}}
+      <br>{{this}} : <br><input type="number" class="form-control" name="{{this}}" required>
+      <input type="range" class="form-control range" min="0" max="100" step="1" value="0"><span class="percentage">0%</span>
+   {{/each}}
+  {{/each}}
+  <br>
+  <button class="saveTime btn btn-primary">Save time</button>
+</div>
+</div>
+
+
+
+        <div class="col-lg-12">
+        <h3>Change log:</h3><br>
+        <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+          Show changes log
+        </button><br>
+<div class="collapse" id="collapseExample">
+  <div class="well">
+    {{#each fullTaskHistory}}
+      <div class="log">
+      estimation : <span class="{{#if color.cEstimation}}{{color.cEstimation}}{{/if}}">{{estimation}}</span><br>
+      <!-- worked : <span class="{{#if color.cWorked}}{{color.cWorked}}{{/if}}">{{worked}}</span><br> -->
+      user : {{user}}<br>
+      </div>
+      <hr>
+    {{/each}}
+  </div>
+</div>
+      </div>
     </div>
+<script>
+
+</script>
+
 </template>

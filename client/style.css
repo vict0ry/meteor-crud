@@ -4,7 +4,7 @@
 	color:#fff!important;
 }
 .navbar-inverse .navbar-nav>li>a{
-    
+
     color:#fff;
 }
 .navbar-inverse{
@@ -19,10 +19,75 @@ body{
     background-color: #9A0B0A;
     border-color: #9A0B0A;
 }
+.removeItem:before{
+  content:"\f1f8";
+  cursor:pointer;
+  font-family:FontAwesome;
+  font-weight:bold;
+}
 .alert-info {
     color: #2D2C2C;
     background-color: #EAEAEA;
     border-color: #E8EEEF;
+}
+input[type=range]{
+  -webkit-appearance: none;
+  width: 82%;
+  margin: 8px 0;
+  border: none;
+  padding: 0px;
+      margin: 25px 0!important;
+  display:inline-block;
+  height:0px;
+}
+.percentage{
+      height: 34px;
+      display:inline-block;
+      right: -35px;
+      position: absolute;
+      padding-top: 15px;
+
+}
+select option:checked {
+    background: #9A0B0A;
+}
+select option::-moz-selection {
+    background: #9A0B0A;
+}
+
+option:checked, option:hover {
+    color: white;
+    background: #9A0B0A repeat url("");
+}
+
+.users option::selection {
+    background: #9A0B0A;
+}
+select:-internal-list-box {
+    -webkit-appearance: listbox;
+    align-items: flex-start;
+    border-image-source: initial;
+    border-image-slice: initial;
+    border-image-width: initial;
+    border-image-outset: initial;
+    border-image-repeat: initial;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    vertical-align: text-bottom;
+    -webkit-user-select: none;
+    white-space: nowrap;
+    border-width: 1px;
+    border-style: inset;
+    border-color: #9A0B0A!important;
+    border-radius: initial;
+}
+.author{
+  background: #9a0b0a;
+padding: 5px 12px;
+color: #fff;
+}
+.author:hover{
+  color:#fff;
 }
 .pull-left {
     padding-left:50px;
@@ -109,6 +174,7 @@ input[type=range]::-ms-thumb {
   cursor: pointer;
   height: 0px;
 }
+
 input[type=range]:focus::-ms-fill-lower {
   background: rgba(154, 11, 10, 0.58);
 }
@@ -128,7 +194,7 @@ td:last-child{
     width:2px;
 }
 a {
- color:#000;   
+ color:#000;
 }
 thead:first-child{
     background-color: #F7F7F7;
@@ -157,7 +223,10 @@ thead:first-child{
 .dropdown{
         padding-top: 12px;
 }
-    
+.noUi-horizontal .noUi-handle{
+  padding-top: 26px;
+  text-align: center;
+}
 #login-buttons a, .accounts-dialog a {
     cursor: pointer;
     text-decoration: underline;
@@ -280,7 +349,7 @@ body {
 .profile-userbuttons .btn:last-child {
   margin-right: 0px;
 }
-    
+
 .profile-usermenu {
   margin-top: 30px;
 }
@@ -361,7 +430,7 @@ background: #CAE2E3;
 /****************** end user profile **************/
 
 div.active {
-    background: rgb(184, 225, 252);    
+    background: rgb(184, 225, 252);
 }
 .list-group-item{
     border:1px solid #FFF;
@@ -391,5 +460,12 @@ div.active {
 .subjectMessage{
     background-color: #794B4B;
     color:#fff;
+    padding:20px;
+}
+.table-striped > tbody > tr:nth-child(odd) > td, .table-striped > tbody > tr:nth-child(odd) > th{
+    background:none!important;
+}
+tr:hover{
+    background:#F5F2F2;
     padding:20px;
 }

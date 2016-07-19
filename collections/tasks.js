@@ -1,7 +1,9 @@
 Tasks = new Mongo.Collection('tasks');
 Items = new Mongo.Collection('items');
 Uploads = new Mongo.Collection('uploads');
-
+TasksHistory = new Mongo.Collection('tasksHistory');
+Assignations = new Mongo.Collection('assignations');
+UserTimes = new Mongo.Collection('userTimes');
 
 
 if (Meteor.isServer) {
@@ -14,7 +16,7 @@ if (Meteor.isServer) {
     Meteor.publish('items', function() {
         return Items.find();
     });
-    
+
     Meteor.publish('uploads', function() {
         return Uploads.find();
     });
@@ -53,6 +55,23 @@ TaskSchema = new SimpleSchema({
             afFieldInput: {
                 type: "text"
             }
+        },
+        defaultValue: 0,
+        autoform: {
+            type: "hidden"
+        }
+    },
+    workedIntern: {
+        type: Number,
+        decimal: true,
+        autoform: {
+            afFieldInput: {
+                type: "text"
+            }
+        },
+        defaultValue: 0,
+        autoform: {
+            type: "hidden"
         }
     },
     projectDescription: {
@@ -62,19 +81,15 @@ TaskSchema = new SimpleSchema({
             rows: 5
         }
     },
-    ratio: {
-        type: Number,
-        max: 100,
-        min: 0,
-        autoform: {
-            type: "noUiSlider",
-            step: 1,
-            noUiSlider_pipsOptions: {
-                mode: 'range',
-                density: 1
-            }
-        }
-    },
+    // ratio: {
+    //     type: Number,
+    //     max: 100,
+    //     min: 0,
+    //     autoform: {
+    //         type: "noUiSlider",
+    //         step: 1
+    //     }
+    // },
     createdAt: {
         type: Date,
         label: "Created at",
@@ -105,6 +120,7 @@ TaskSchema = new SimpleSchema({
     },
     isDone: {
         type: Boolean,
+        optional: true,
         label: "Is done",
         defaultValue: false,
         autoform: {
@@ -130,7 +146,7 @@ TaskSchema = new SimpleSchema({
         }
     }
 });
-
+SimpleSchema.debug = true
 
 
 Tasks.attachSchema(TaskSchema);

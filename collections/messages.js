@@ -35,13 +35,13 @@ MessagesSchema = new SimpleSchema({
     owner: {
         type: String,
         label: "Username",
-        defaultValue() {
-            return Meteor.user().username
+        defaultValue(){
+          return Meteor.user().username
         },
         autoform: {
             type: "hidden"
         }
-    }, 
+    },
     recipientId:{
         type: String,
         label: "Recipient",
@@ -50,6 +50,14 @@ MessagesSchema = new SimpleSchema({
         }
     },
     readed: {
+        type: Boolean,
+        label: "Readed",
+        defaultValue: false,
+        autoform: {
+            type: "hidden"
+        }
+    },
+    notified: {
         type: Boolean,
         label: "Readed",
         defaultValue: false,

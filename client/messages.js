@@ -1,22 +1,32 @@
 Template.Header.helpers({
 
     unreadMessages: function() {
-        return Messages.find(
-        { $and: [ { readed: false }, { recipientId: Meteor.userId() } ] }
+        getMessages = Messages.find(
+        { $and: [ { notified: false }, { recipientId: Meteor.userId() } ] }
         );
+        getMessages.forEach(function(row){
+          Messages.update({_id: row._id}, {$set: {notified: true} });
+        });
+        return getMessages;
+
+
     },
-    
+    testAction(){
+      return console.log(this._id);
+    },
+
     unreadMessagesFull: function() {
-        return getAllMessages.find(
-        { $and: [ { readed: false }, { recipientId: "CRxABqcDWWbZ46Yo3" } ] }
-        );
+      // getAllMessages = getAllMessages.find({
+      //   notified:false,
+      //   author: { $ne: Meteor.userId() }
+      // });
+      // return getAllMessages;
     },
     userProfile: function(){
         return Meteor.userId();
     }
 
 });
-
 
 
 Template.MyMessages.helpers({
@@ -41,23 +51,29 @@ Template.FullMessage.helpers({
 Template.FullMessage.helpers({
     fullMessages: function() {
         var id = FlowRouter.getParam('id');
-        return getAllMessages.find({recipientId:id});
+        return getAllMessages.find({recipientIdMessage:id});
     }
 });
 
 Template.FullMessage.onRendered(function () {
             var id = FlowRouter.getParam('id');
             var findmessageOwner = Messages.find({_id: id}).fetch();
-            
-            if(findmessageOwner[0].recipientId == Meteor.userId()){
+
+            if(findmessageOwner[0].recipientId == Meteor.userId()){ //if user is recipient then mark message as a readed.
                 Messages.update({_id: id}, {$set: {readed: true} });
             }
+
+
+            var updateMessages = getAllMessages.find({
+              recipientIdMessage:id
+            });
+            updateMessages.forEach(function(row){
+              messageId = row._id;
+              setTimeout(function(){
+                getAllMessages.update({_id: messageId}, {$set: {readed: true} },{multi:true});
+              }, 1000);
+            });
 });
-
-//Template.Header.onRendered(function () {
-//Messages.update({readed:false},{ $set:{readed:true} });
-//});
-
 
 
 Template.Header.events({
@@ -66,5 +82,5 @@ Template.Header.events({
         alert('done');
         Meteor.call("removeTask", this._id)
     }
-    
+
 });

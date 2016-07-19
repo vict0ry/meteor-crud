@@ -3,4 +3,19 @@
     <div class="container">
         <h1>Here you can add project !</h1> {{ >quickForm collection="Tasks" id="insertTasks" scope="users" type="insert" class="new-insert-form animated bounceInLeft" }}
     </div>
+
+    <script>
+    slider = $('.nouislider');
+
+    sHandler = $('.noUi-handle');
+
+    sHandler.data('toogle','tooltip');
+    sHandler.attr('title','test');
+
+    slider.on('slide', function(values, handle){
+      handle = Math.round(handle * 100)/100 + "%";
+    $('.noUi-handle').html(handle);
+    });
+    </script>
+
 </template>

@@ -64,6 +64,7 @@ less@2.5.7
 livedata@1.0.17
 localstorage@1.0.8
 logging@1.0.11
+lsun:ckeditor@4.5.4
 matb33:bootstrap-base@10.0.0
 matb33:bootstrap-glyphicons@10.0.0
 mdg:validation-error@0.2.0

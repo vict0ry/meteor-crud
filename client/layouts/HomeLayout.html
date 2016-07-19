@@ -3,14 +3,13 @@
     {{#if currentUser}}
     <div class="container">
        <h1>{{_ "projectList"}} :</h1><br>
-       <a style="float:right;padding-bottom:5px;">Show finished projects</a>
         <table class="table table-striped animated slideInRight">
             <thead>
                 <tr>
                     <th><span class="sort-element">{{_"projectName"}}</span><span class="sort-icon fa"></span></th>
                     <th><span class="sort-element">{{_"estimation"}}</span><span class="sort-icon fa"></span></th>
                     <th><span class="sort-element">{{_"worked"}}</span><span class="sort-icon fa"></span></th>
-                    <th><span class="sort-element">{{_"ratio"}}</span><span class="sort-icon fa"></span></th>
+                    <!-- <th><span class="sort-element">{{_"ratio"}}</span><span class="sort-icon fa"></span></th> -->
                     <th><span class="sort-element">{{_"difference"}} / {{_"internDif"}}</span><span class="sort-icon fa"></span></th>
                     <th><span class="sort-element">{{_"action"}}</span><span class="sort-icon fa"></span></th>
                 </tr>
@@ -28,21 +27,24 @@
         <h1 class="bg-danger" sytle="text-align: center;">YOU MUST LOG IN!</h1>
     </div>
     {{/if}}
-    
+
 </template>
 
 
 <template name="task">
     {{#each tasks}}
-    <tr class="{{#if isDone}}done{{/if}}">
+    <tr class="{{#if isDone }}done{{/if}}">
         <td><span data-project="projectName" class="projectName edit" contenteditable="false">{{projectName}}</span></td>
         <td><span data-project="estimation" class="estimation edit" contenteditable="false" >{{estimation}}</span> min</td>
-        <td><span data-project="worked" class="worked edit" contenteditable="true" >{{worked}}</span> min</td>
-        <td><span data-project="ratio" class="ratio edit" contenteditable="false" >{{ratio}}</span>%</td>
+        <td><span data-project="worked" class="">
+          Normal: {{worked}} min<br>
+          Intern: {{workedIntern}} min
+        </span></td>
+        <!-- <td><span data-project="ratio" class="ratio edit">{{ratio}}</span>%</td> -->
         <td>
         <span class="difference">
-        Estimation: {{difference}} min<br>
-        Intern: {{differenceIntern}} min
+        Remining Normal: <span class="{{#if colorWorked}}text-success{{else}}text-danger{{/if}}">{{difference}} min</span><br>
+        Remining intern: <span class="{{#if colorWorkedIntern}}text-success{{else}}text-danger{{/if}}">{{differenceIntern}} min</span>
         </span>
         </td>
         <td>
@@ -52,5 +54,15 @@
     </tr>
     <div class="{{#if edit}}repairon{{else}}repair{{/if}}">{{> quickForm collection="Tasks" doc=this id=ajdi type="update"}}</div>
     {{/each}}
-    
+    <script>
+    slider = $('.nouislider');
+
+    sHandler = $('.noUi-handle');
+
+    slider.on('slide', function(values, handle){
+      handle = Math.round(handle * 100)/100 + "%";
+    $('.noUi-handle').html(handle);
+    });
+    console.log('homepage');
+    </script>
 </template>
